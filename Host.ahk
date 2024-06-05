@@ -27,11 +27,10 @@ CapsLock & Space::
         MyGui.Opt("+AlwaysOnTop -SysMenu +Owner -Caption")  
         myGUI.SetFont("s10", "Segoe UI")
         myGUI.Add('Text', ,"¯\_(ツ)_/¯")
-        editCtrl := myGUI.Add('Edit', 'vSkull r1 w220', "sharepoint")
+        editCtrl := myGUI.Add('Edit', 'vSkull r1 w220', "")
         myGUI.OnEvent("Escape", GuiEscape)
         myGUI.OnEvent("Close", GuiEscape)
         editCtrl.OnEvent("Change",Findus)
-        ;MyGui.Add("Button", "default", "OK").OnEvent("Click", Findus)
         myGUI.Show()
 
         ;-------------------------------------------------------------------------------
@@ -48,9 +47,8 @@ CapsLock & Space::
         {
             Saved := myGUI.Submit(false)
             your_keyword := Saved.Skull
+            ; the following command will include and run
             #Include %A_ScriptDir%\UserCommands.ahk
-            ;MsgBox('Saved.Skull')
-            ;gui_destroy()
         }
 
         ;
@@ -58,20 +56,9 @@ CapsLock & Space::
         ;
         #WinActivateForce
         gui_destroy() {
-            global gui_state
-            global gui_search_title
-            ; Forget search title variable so the next search does not re-use it
-            ; in case the next search does not set its own:
-            gui_search_title :=
-
-            ; Clear the tooltip
-            ; Gosub gui_tooltip_clear
-
-            ; Hide GUI
             myGUI.Destroy()
-
             ; Bring focus back to another window found on the desktop
-            ;NVED TODO: this seem to give an error
+            ;TODO: this seem to give an error
             ;WinActivate
         }           
 }
