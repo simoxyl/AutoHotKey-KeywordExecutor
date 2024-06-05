@@ -23,11 +23,12 @@ CapsLock & Space::
         myGUI := Gui()
         myGUI.MarginX := 16
         myGUI.MarginY := 16
-        myGUI.BackColour := 0x000000
+        myGUI.BackColor := "Black"
         MyGui.Opt("+AlwaysOnTop -SysMenu +Owner -Caption")  
-        myGUI.SetFont("s10", "Segoe UI")
+        myGUI.SetFont("s10 cGreen q5 w700", "Segoe UI")
         myGUI.Add('Text', ,"¯\_(ツ)_/¯")
         editCtrl := myGUI.Add('Edit', 'vSkull r1 w220', "")
+        editCtrl.SetFont("s12 cSilver q5 w400", "Consolas")
         myGUI.OnEvent("Escape", GuiEscape)
         myGUI.OnEvent("Close", GuiEscape)
         editCtrl.OnEvent("Change",Findus)
